@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form class="form-search" action="/" method="post">
+    <input type="text" name="moviename" class="inpurt-medium search-query">
+    <button type="submit" class="btn">Search</button>
+
+</form>
+<table class="table">
+    <thead>
+        <tr class="success">
+            <th>#</th>
+            <th>title</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% set cnt = 1 %}
+        {% for m in movies %}
+            <tr>
+                <td>{{cnt}}</td>
+                <td><a href="{{m.url}}" target="_blank">{{m.title}}</a></td>
+            </tr>
+            {% set cnt = cnt + 1 %}
+        {% end %}
+    </tbody>
+</table>
+{% end %}
